@@ -8,10 +8,11 @@
 |---|---|---|
 | [go-gin-ecommerce](skills/go-gin-ecommerce/) | V3.3 | Go + Gin 电商微信小程序与 Web 运营后台后端研发规范 |
 
+| [wechat-miniprogram](skills/wechat-miniprogram/) | V1.0 | Vue3 + uni-app 微信小程序商城前端规范 |
+
 ## 规划中的 Skill（尚未创建）
 
 - `skills/product-prototyping/`：产品需求、业务规则、交互原型设计
-- `skills/wechat-miniprogram/`：微信小程序前端开发
 - `skills/web-admin-frontend/`：Web 运营后台前端开发
 
 ## 单独下载与部署
