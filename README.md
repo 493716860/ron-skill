@@ -7,7 +7,6 @@
 | Skill | 版本 | 用途 |
 |---|---|---|
 | [go-gin-ecommerce](skills/go-gin-ecommerce/) | V3.3 | Go + Gin 电商微信小程序与 Web 运营后台后端研发规范 |
-
 | [wechat-miniprogram](skills/wechat-miniprogram/) | V1.3 | Vue3 + uni-app 微信小程序工程规范（不定义业务需求） |
 
 ## 规划中的 Skill（尚未创建）
