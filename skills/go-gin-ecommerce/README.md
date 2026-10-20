@@ -1,4 +1,4 @@
-# Go + Gin 商城研发 Skill V3.2
+# Go + Gin 商城研发 Skill V3.3
 
 适用：自有微信小程序商城 + Web 运营后台 + 自有用户分销 + 自有商品接入有赞分销体系。
 
@@ -12,6 +12,9 @@
 
 `templates/` 仅为示例骨架，特别是认证代码不能未经完善直接上线。
 
-V3.2 新增：`rules/ai-change-control.md`、`rules/business-decisions.md`、`rules/database-examples.md`、`rules/api-examples.md`、`examples/product-module/`。涉及修改代码必须遵守变更控制；涉及资金规则必须确认决策表。
+V3.3 新增：`rules/ai-change-control.md`、`rules/business-decisions.md`、`rules/database-examples.md`、`rules/api-examples.md`、`examples/product-module/`。涉及修改代码必须遵守变更控制；涉及资金规则必须确认决策表。
 ## 独立部署
 将本目录完整复制到目标项目的 Skill 目录，或将本目录内容（包括 SKILL.md、AGENTS.md、rules、templates、examples）复制到目标项目的规范目录。此 Skill 不依赖仓库内其他 Skill。
+
+## 技术栈基线
+Go 1.25、Gin、GORM、MySQL 8.4 LTS、Redis（按需）、zap、golang-jwt、Swagger（swag）；Viper/环境变量待定。详见 `rules/technology-stack.md`。生产环境禁用 GORM AutoMigrate 变更表结构，统一使用 SQL Migration。
