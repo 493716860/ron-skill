@@ -1,15 +1,31 @@
-# Go + Gin 商城研发 Skill V3.2
+# ron-skill — 独立 Skill 仓库
 
-适用：自有微信小程序商城 + Web 运营后台 + 自有用户分销 + 自有商品接入有赞分销体系。
+本仓库用于集中管理多个可独立下载、部署的 Skill。**每个 Skill 独立存放在 `skills/<skill-name>/` 下**，内部包含自己的 `SKILL.md`、规则、模板和示例，不依赖其他 Skill。
 
-## 使用
-把 `SKILL.md`、`AGENTS.md`、`rules/`、`templates/` 放入 Go 后端仓库根目录。开发时先读总控规范和涉及业务的规则。
+## 已发布 Skill
 
-## 约束
-经典分层架构，`cmd/api/main.go`；数据库每表每字段中文注释、关键代码中文注释；统一 API 返回和鉴权；订单/库存/支付/退款幂等与一致性；会员、积分、定价、分销独立规则；有赞渠道适配和对账。
+| Skill | 版本 | 用途 |
+|---|---|---|
+| [go-gin-ecommerce](skills/go-gin-ecommerce/) | V3.2 | Go + Gin 电商微信小程序与 Web 运营后台后端研发规范 |
 
-不强制 CI/CD、测试覆盖率门禁、部署与性能容量规范；不默认引入 RabbitMQ/Kafka、微服务、DDD。
+## 规划中的 Skill（尚未创建）
 
-`templates/` 仅为示例骨架，特别是认证代码不能未经完善直接上线。
+- `skills/product-prototyping/`：产品需求、业务规则、交互原型设计
+- `skills/wechat-miniprogram/`：微信小程序前端开发
+- `skills/web-admin-frontend/`：Web 运营后台前端开发
 
-V3.2 新增：`rules/ai-change-control.md`、`rules/business-decisions.md`、`rules/database-examples.md`、`rules/api-examples.md`、`examples/product-module/`。涉及修改代码必须遵守变更控制；涉及资金规则必须确认决策表。
+## 单独下载与部署
+
+**推荐：Git sparse-checkout**（只拉取一个 Skill）：
+
+```bash
+git clone --filter=blob:none --no-checkout https://github.com/493716860/ron-skill.git
+cd ron-skill
+git sparse-checkout init --cone
+git sparse-checkout set skills/go-gin-ecommerce
+git checkout main
+```
+
+目标项目中仅复制 `skills/go-gin-ecommerce/` 下的内容到该项目的 AI Skill 目录；根据所用 AI 工具要求配置入口。各 Skill 以自身 `SKILL.md` 为主入口。复制到项目根目录使用时，应避免覆盖项目已有的 `AGENTS.md`。
+
+新增 Skill 时，在 `skills/` 下新建独立子目录，不要在仓库根目录直接放业务专项规范。
