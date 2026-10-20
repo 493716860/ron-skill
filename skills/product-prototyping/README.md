@@ -1,8 +1,10 @@
 # Product Prototyping Skill V2.0
-企业级产品需求分析、业务建模、HTML 高保真交互原型、验收与交接规范。
-## 使用
-独立检出本目录，读取 SKILL.md 和任务相关 rules/。交付默认 HTML + README；复杂需求附 requirements.json；单文件要求时使用离线自包含 HTML。
-## 原则
-产品 Skill 负责业务规格，工程 Skill 负责实现规范。未知业务策略标记 TBD，资金、权限、状态关键规则未确认不得声称已达到开发就绪。模板均为示例，不是业务规则。
-## V2.0 增强
-业务建模、规则决策表、完整需求追踪、可操作 HTML 模板、结构化 JSON Schema、质量评分、变更影响分析和交付检查清单。
+企业级产品需求分析、业务建模、需求规格、HTML 仿真交互原型与研发交付规范。独立于 Go/Vue 技术栈。
+## 核心交付
+默认 index.html（完整交互）+ README.md；按需要附 requirements.json（需符合 schema）。单文件交付时 HTML 必须离线自包含。
+## 设计过程
+需求发现 → 业务对象/流程/状态 → 规则决策表与字段规格 → 多页面可交互原型 → Given/When/Then → 质量评分/阻断审查 → 研发交接。
+## 质量要求
+评分 90+ 为评审候选，不代表业务批准；高风险规则 TBD、关键流程缺失、虚假交互等独立阻断项必须解除。详见 rules/quality-review.md。
+## 独立安装
+仅检出 skills/product-prototyping/，按工具要求加载 SKILL.md；避免覆盖目标项目现有 AGENTS.md。
