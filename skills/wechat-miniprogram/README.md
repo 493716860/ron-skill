@@ -1,5 +1,9 @@
-# wechat-miniprogram 工程 Skill V1.2
-用于 Vue3 + uni-app + TypeScript 微信小程序的工程架构、编码风格和代码整洁规范。
-技术基线：Vite、Pinia、uni-mini-router、UnoCSS、ESLint、Prettier；UI 库 Wot Design Uni/uView 待定，HTTP Alova/自封装 request 待定。
-**职责边界**：只约束如何开发，不定义开发哪些业务功能。业务流程、页面清单、运营规则、验收标准由 product-prototyping Skill 管理。
-将本目录单独下载到项目的 Skill 位置，读取 SKILL.md 与 rules/；不要直接覆盖现有项目 AGENTS.md。
+# wechat-miniprogram 工程 Skill V1.3
+面向 Vue3 + uni-app + Vite + TypeScript + Pinia + uni-mini-router + UnoCSS 的微信小程序工程规范。
+- 规范范围：目录、组件、TypeScript、生命周期、路由、Pinia、HTTP、鉴权、平台适配、样式与 AI 变更控制。
+- 非规范范围：具体商品、营销、分销、会员等业务功能需求及流程，由产品需求设计 Skill 管理。
+- 待确定：UI 库 Wot Design Uni/uView；HTTP Alova/自封装 request。
+## 独立使用
+将本目录单独检出或复制到目标项目的 Skill 目录，按编码工具要求加载 SKILL.md；不要无确认地覆盖项目现有 AGENTS.md。
+## 规则清单
+architecture、coding、lifecycle、routing、state、api-auth、ui-ux、platform、ai-change-control、integration-boundaries。
