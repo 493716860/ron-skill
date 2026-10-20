@@ -2,8 +2,14 @@
 name: mall-go-gin-engineering
 description: Go Gin 微信小程序商城与运营后台轻量级生产研发规范
 ---
-# 商城工程 Skill V3.2
-适用范围：Go + Gin + MySQL 的微信小程序商城与 Web 运营后台。优先简单、可维护、交易安全。每次修改先阅读相关规则和现有实现，不为未提出的需求引入新框架。
+# 商城工程 Skill V3.3
+适用范围：Go 1.25 + Gin + GORM + MySQL 8.4 LTS 的微信小程序商城与 Web 运营后台。优先简单、可维护、交易安全。每次修改先阅读相关规则和现有实现，不为未提出的需求引入新框架。
+
+## 已锁定技术栈
+- Go 1.25、Gin、GORM、MySQL 8.4 LTS、Redis（按需）、zap、golang-jwt、Swagger（swag）。
+- 配置方式保留“Viper 或环境变量”二选一，尚未定案；在项目明确前不得擅自添加 Viper。
+- 数据库结构仅通过版本化 SQL Migration 管理；生产环境禁止 GORM AutoMigrate 修改表结构。
+- 前端技术栈由各自独立 Skill 管理：小程序 Vue3 + uni-app + Vite + TypeScript + Pinia；Web 后台 Vue3 + Vite + TypeScript + Element Plus。
 
 ## 强制约束
 1. 经典分层：Router/Middleware → Handler → Service → Repository → Model。入口 `cmd/api/main.go`。Handler 不直连数据库；Service 组织业务及事务；Repository 负责持久化；DTO 不等于数据库 Model。
@@ -18,7 +24,7 @@ description: Go Gin 微信小程序商城与运营后台轻量级生产研发规
 
 ## 按需实施
 - API 初期统一 `/api/v1/mini` 与 `/api/v1/admin`；需要破坏性升级时再制定兼容方案。
-- 基础结构化日志 + request_id；暂不引入全链路追踪平台。
+- zap 结构化日志 + request_id；暂不引入全链路追踪平台。
 - Redis 仅在 Token、验证码、必要业务场景使用；缓存不得作为订单与支付事实来源。
 - 不默认引入 MQ、微服务、DDD、CQRS、通用规则引擎；确有业务需要时再评估。
 - 只对实际使用的微信登录、支付等外部接口处理超时、重试和验签。
@@ -32,6 +38,6 @@ description: Go Gin 微信小程序商城与运营后台轻量级生产研发规
 
 有赞集成必须先确认渠道模式、实际可用接口、订单归属和佣金责任；采用自有商品接入有赞分销渠道，不将有赞作为内部商品主数据源。
 
-详见 `rules/` 与 `templates/`。规则冲突时以本文件为准。
+技术栈细节见 `rules/technology-stack.md`。详见 `rules/` 与 `templates/`。规则冲突时以本文件为准。
 
-V3.2 新增：`rules/ai-change-control.md`、`rules/business-decisions.md`、`rules/database-examples.md`、`rules/api-examples.md`、`examples/product-module/`。涉及修改代码必须遵守变更控制；涉及资金规则必须确认决策表。
+V3.3 新增：`rules/ai-change-control.md`、`rules/business-decisions.md`、`rules/database-examples.md`、`rules/api-examples.md`、`examples/product-module/`。涉及修改代码必须遵守变更控制；涉及资金规则必须确认决策表。
