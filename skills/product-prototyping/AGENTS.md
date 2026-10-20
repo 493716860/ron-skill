@@ -1,2 +1,2 @@
-# 产品设计 Skill AI 入口
-先读 SKILL.md 与相关 rules/。本 Skill 负责业务需求和可交互 HTML 原型，不负责前后端代码工程规范。未确认业务规则必须标记 TBD；不得臆造佣金、积分、价格、权限或外部平台能力。交付必须完整可操作，并提供可验证验收标准。
+# Product Prototyping Skill V2.0 AI 入口
+先读 SKILL.md 及相关 rules/；对不明确的业务决策标记 TBD，禁止将推测写成已确认规则。原型需可操作，业务规则与页面交互、验收标准一致。交付前按 quality-review.md 与 delivery-review.md 检查，报告实际验证及未完成项。本 Skill 不决定前后端工程架构。
