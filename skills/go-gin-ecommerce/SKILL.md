@@ -41,3 +41,5 @@ description: Go Gin 微信小程序商城与运营后台轻量级生产研发规
 技术栈细节见 `rules/technology-stack.md`。详见 `rules/` 与 `templates/`。规则冲突时以本文件为准。
 
 V3.3 新增：`rules/ai-change-control.md`、`rules/business-decisions.md`、`rules/database-examples.md`、`rules/api-examples.md`、`examples/product-module/`。涉及修改代码必须遵守变更控制；涉及资金规则必须确认决策表。
+## 职责边界（重要）
+本 Skill 是工程规范，不是业务需求规格。订单、分销、有赞、会员、积分等业务细节以独立产品需求设计 Skill 及经确认需求为准。rules/distribution.md、membership.md、pricing.md、operations.md、business-decisions.md 仅保留跨业务通用的资金精度、幂等、权限、状态一致性等安全实现原则；其中示例或待确认策略不能被视为已批准业务规则。AI 不得擅自补充需求。
