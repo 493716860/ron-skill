@@ -10,6 +10,7 @@
 | [wechat-miniprogram](skills/wechat-miniprogram/) | V1.3 | Vue3 + uni-app 微信小程序工程规范（不定义业务需求） |
 | [web-admin-frontend](skills/web-admin-frontend/) | V2.0 | Vue3 + Element Plus Web 运营后台工程规范 |
 | [product-prototyping](skills/product-prototyping/) | V2.0 | 产品需求规格与 HTML 仿真交互原型设计 |
+| [api-database-design](skills/api-database-design/) | V1.0 | OpenAPI 3.1 与 MySQL 8.4 详细设计 |
 
 ## 规划中的 Skill（尚未创建）
 
