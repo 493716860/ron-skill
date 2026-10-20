@@ -1,2 +1,2 @@
-# API 与数据库设计 AI 入口
-先读 SKILL.md 和相关 rules/。产品需求是业务规则唯一来源；本 Skill 将需求转化为 OpenAPI、SQL Migration、数据字典和事务/状态/权限技术设计。未经确认不得猜测资金、库存、积分、佣金、退款规则；不得擅自变更既有契约。交付前审查完整性、一致性和高风险 TBD。
+# API & Database Design Skill V2.0
+先读 SKILL.md 与任务相关 rules/；依据已确认产品需求、现有 API/DDL 推导技术契约，遵守模块数据所有权、OpenAPI 3.1、MySQL 8.4 LTS 中文注释、事务/幂等。复杂度按 L1/L2/L3 分级。高风险 TBD 不得自行决策，未获人工批准不得宣称 approved。示例订单案例仅为方法演示。
