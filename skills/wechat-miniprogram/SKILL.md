@@ -1,14 +1,20 @@
 ---
 name: wechat-miniprogram
-version: 1.0.0
-description: Vue3 uni-app TypeScript 电商微信小程序研发规范。
+version: 1.2.0
+description: Vue3 uni-app TypeScript 微信小程序前端工程规范
 ---
-# 微信小程序 Skill V1.1
-技术栈：Vue3 + uni-app + Vite + TypeScript + Pinia + uni-mini-router + UnoCSS + ESLint + Prettier。UI：Wot Design Uni/uView 待选；HTTP：Alova/自封装 request 待选。SCSS 按需。
-## 强制
-页面、API、Store、组件、类型分层；统一 /api/v1/mini 请求与 {code,message,data,request_id} 响应；Token 安全存储，401 受控登录；金额、库存、积分、分销佣金、支付状态均以服务端为准；支付结果必须向后端确认；首页装修仅白名单组件和跳转；关键代码必要中文注释。不得硬编码密钥或擅自添加依赖。
-## AI 工作流
-先读现有代码与对应规则，最小范围修改，检查异常态与交易安全，说明实际验证结果。详见 rules/。
-
-## 营销活动强制规范
-限时秒杀、拼团、活动价、优惠券、满减满折、新人专享、会员专享和运营专题专区必须遵循 `rules/marketing.md`。活动资格、库存、价格、成团与退款状态由后端最终确认；小程序只负责交互展示。
+# 微信小程序工程 Skill V1.2
+本 Skill 只规定架构、目录、编码风格、组件、状态、路由、请求、安全编码与可维护性，不规定商品、营销、会员、分销等具体业务功能或业务流程。业务需求与验收标准由独立 product-prototyping Skill 及经确认的需求文档管理。
+## 技术基线
+Vue3 + uni-app + Vite + TypeScript + Pinia + uni-mini-router + UnoCSS + ESLint + Prettier。UI 库 Wot Design Uni/uView 待定；HTTP Alova/自封装 request 待定。不得自行选型。
+## 强制工程规范
+1. 页面、组件、API、Store、Composables、Types 分工清晰，禁止页面直接拼接接口 URL 或跨模块随意操作状态。
+2. Composition API 与 script setup lang="ts"，类型清晰，避免 any；公共函数与关键实现有必要中文注释。
+3. 统一 HTTP 请求入口，统一处理响应结构、错误、401、超时与请求取消；敏感信息不得写入代码或日志。
+4. 使用后端返回的交易、权限和状态结果；前端不能成为资金与权限最终裁决方。具体业务规则遵循已确认需求。
+5. 页面具备通用加载、空态、失败、重试与防重复提交处理；统一路由、组件和样式约定。
+6. 最小范围修改，保持既有项目风格，不擅自引入框架或新增业务功能。
+## 规则
+阅读 rules/architecture.md、coding.md、api-auth.md、ui-ux.md、ai-change-control.md；涉及通用服务端交互参照 rules/integration-boundaries.md。
+## 不强制
+CI/CD、覆盖率门禁、性能压测、复杂监控与额外中间件；由人工把关。不得虚报验证结果。
