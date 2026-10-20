@@ -1,25 +1,26 @@
 ---
 name: api-database-design
-version: 1.0.0
-description: 将已确认产品需求转换为 OpenAPI 3.1、MySQL 8.4 SQL Migration、数据字典和交易安全详细设计
+version: 2.0.0
+description: 企业级 API、MySQL 数据库、模块数据所有权、事务幂等与可实施技术详细设计
 ---
-# API 与数据库详细设计 Skill V1.0
-## 职责
-输入：已确认的产品需求（REQ/BR/PAGE/AC）、HTML 原型、权限矩阵、状态机和现有系统契约。输出：经过审查的技术设计包；不替代产品需求决策，不直接实现业务代码。
+# API 与数据库架构设计 Skill V2.0
+## 定位
+将已确认产品需求与现有系统约束转为可实施的 OpenAPI 3.1、MySQL 8.4 LTS Migration、数据字典、模块数据所有权、事务状态机和需求追踪。业务规则以产品规格为准；技术设计不得臆造未确认的资金、分销、积分等策略。
 ## 技术基线
-Go 1.25 + Gin + GORM + MySQL 8.4 LTS；JWT（golang-jwt）、Redis 按需、Swagger（swag）。经典分层。生产结构变更只用版本化 SQL Migration，不允许 GORM AutoMigrate。
-## P0 强制
-1. 先核对输入的需求版本、业务决策与已有 API/表结构；高风险 TBD 不得猜测，阻断研发就绪。
-2. 每个 API 具备 API-ID、REQ/BR 来源、Method/Path、鉴权、参数、字段约束、成功/失败响应、状态码、幂等/分页/并发说明。
-3. OpenAPI 3.1 YAML 为接口契约唯一权威来源；JSON 响应使用 code/message/data/request_id，分页 list/total/page/page_size；平台回调按其协议例外。
-4. 每张表及每个字段必须有准确中文 COMMENT；金额整数分，索引/唯一键/NULL/默认值/时间语义明确；DDL 使用 MySQL 8.4 LTS 版本化 SQL Migration。
-5. 涉及资金、库存、支付、退款、积分、佣金的操作必须描述状态机、事务边界、幂等键、并发冲突与补偿/对账策略。
-6. API DTO 与数据库持久化模型分离；页面字段→API 字段→表字段的映射须可追溯，不要求每个页面字段都直接入库。
-7. API/DDL/数据字典/状态与权限设计不得冲突；既有接口兼容性和迁移风险必须说明。
-8. 不臆造有赞开放平台接口或权限；外部系统能力必须先核实。
-## 流程
-读取需求与现状→识别待决策项→设计 API/表/状态/事务→编写 OpenAPI 与 SQL→一致性审查→交付设计包供人工确认。
+Go 1.25 + Gin + GORM + MySQL 8.4 LTS；经典分层 Handler→Service→Repository→Model。JWT、Redis 按需、Swagger（swag）。禁止生产 AutoMigrate，所有表/字段中文 COMMENT。
+## P0 方法
+1. 输入审查：核对 REQ/BR/PAGE/AC、业务确认状态、现有 OpenAPI/DDL；高风险 TBD 阻断批准。
+2. 需求推导：按 rules/design-methodology.md 从行为推导 API、DTO、业务对象、表、状态、事务、错误码、权限及追踪。
+3. 模块边界：按 rules/module-boundaries.md 明确数据所有者、读写责任与跨模块协作；不引入 DDD。
+4. API：OpenAPI 3.1 为唯一权威，统一 Envelope、分页、错误码、鉴权，复杂接口按 rules/advanced-api.md。
+5. 数据库：SQL Migration 为唯一物理结构权威，关系、唯一性、快照、流水、软删、迁移按 rules/advanced-database.md。
+6. 一致性：关键流程必须写清事务步骤、锁/唯一约束、幂等键、异常补偿、外部调用及对账。
+7. 验收：规则、API、DDL、字典、状态与追踪互相一致，按 checklists/design-review.md 审查，人工确认后方可标记 approved。
+## 设计深度
+L1 简单 CRUD：OpenAPI、DDL/字段映射、权限、错误码；L2 普通流程：增加状态与异常；L3 资金/库存/支付/积分/佣金：完整事务、并发、幂等、补偿、对账。
 ## 规则索引
-rules/intake.md、api-contract.md、database.md、transaction-consistency.md、security.md、traceability.md、review.md、change-control.md、handoff.md。
-## 交付
-按 templates/delivery-layout.md。人工确认后才标记 design_status=approved。此 Skill 不要求 CI/CD、性能压测或自动化测试覆盖率门禁。
+rules/intake.md、design-methodology.md、module-boundaries.md、api-contract.md、advanced-api.md、database.md、advanced-database.md、transaction-consistency.md、security.md、traceability.md、review.md、change-control.md、handoff.md。
+## 示例
+examples/order-creation/ 为说明性设计案例，具体业务规则均为示例假设，不能直接视为已批准的真实商城需求。
+## 不强制
+CI/CD、自动化测试覆盖率门禁、性能压测或微服务；人工把关。不得虚报验证与审批结果。
