@@ -6,7 +6,7 @@
 
 | Skill | 版本 | 用途 |
 |---|---|---|
-| [go-gin-ecommerce](skills/go-gin-ecommerce/) | V3.2 | Go + Gin 电商微信小程序与 Web 运营后台后端研发规范 |
+| [go-gin-ecommerce](skills/go-gin-ecommerce/) | V3.3 | Go + Gin 电商微信小程序与 Web 运营后台后端研发规范 |
 
 ## 规划中的 Skill（尚未创建）
 
