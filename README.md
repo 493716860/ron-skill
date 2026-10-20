@@ -9,7 +9,7 @@
 | [go-gin-ecommerce](skills/go-gin-ecommerce/) | V3.3 | Go + Gin 电商微信小程序与 Web 运营后台后端研发规范 |
 | [wechat-miniprogram](skills/wechat-miniprogram/) | V1.3 | Vue3 + uni-app 微信小程序工程规范（不定义业务需求） |
 | [web-admin-frontend](skills/web-admin-frontend/) | V2.0 | Vue3 + Element Plus Web 运营后台工程规范 |
-| [product-prototyping](skills/product-prototyping/) | V1.0 | 产品需求规格与 HTML 仿真交互原型设计 |
+| [product-prototyping](skills/product-prototyping/) | V2.0 | 产品需求规格与 HTML 仿真交互原型设计 |
 
 ## 规划中的 Skill（尚未创建）
 
