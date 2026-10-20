@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "status": "example",
+  "features": [
+    {
+      "id": "REQ-001",
+      "title": "示例功能",
+      "roles": ["示例角色"],
+      "rules": ["BR-001"],
+      "pages": ["PAGE-001"],
+      "acceptance": [
+        {
+          "id": "AC-001",
+          "given": "满足前置条件",
+          "when": "用户执行操作",
+          "then": "系统展示可验证的结果"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "BR-001",
+      "description": "示例规则，须经业务确认",
+      "confirmation": "TBD"
+    }
+  ]
+}
